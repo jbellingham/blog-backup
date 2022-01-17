@@ -1,4 +1,4 @@
-## My Journey Towards Cleaner Code
+## My Journey Towards Cleaner Code - Part 1
 
 **Edit:**
 I originally had this as one big post but I've decided to break it into a multi-part series. I'll be talking about my journey trying to come to my own conclusions about what "good" code looks like. I read/watch a lot, so my opinions change with some frequency...
