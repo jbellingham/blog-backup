@@ -27,7 +27,7 @@ Reading back over my notes from Clean Code, I find myself having the above react
 > 
 The first rule of functions is that they should be small. The second rule of functions is that they should be smaller than that.
 
-Which sort of seems like a bit of hyperbolé just to get the point across... until you see his code. He seems to have made this idea a core part of his signature code style. There are plenty more snippets of wisdom just like this peppered throughout the first half of book; many of which I took at face value, and at the time felt made a lot of sense.
+Which sort of seems like a bit of hyperbole just to get the point across... until you see his code. He seems to have made this idea a core part of his signature code style. There are plenty more snippets of wisdom just like this peppered throughout the first half of book; many of which I took at face value, and at the time felt made a lot of sense.
 
 Now, this post is not intended to be a critique of Clean Code, there is plenty of that already on the internet by much better developers than me. I actually quite like the book, even if these days its mostly just for setting me on this path. In truth though, I never even finished reading it, and I don't know if I ever will. I will make no attempt at any kind of _review_ of Clean Code, as that's not of any interest to me. I will however, be holding it up for comparison, mostly because it is my reference point.
 
