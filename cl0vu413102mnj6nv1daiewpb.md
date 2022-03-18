@@ -12,7 +12,7 @@ A cold start is short-hand for the process of a new AWS Lambda execution environ
 
 A warm start occurs when a function is re-invoked soon enough after a preceding invocation that the container was never torn down. Because the container was never torn down, this invocation can skip all of the setup required to spin up during the first invocation, and can go straight to the actual function execution. I haven't seen official documentation, but the lifetime of an idle lambda container _appears_ to be [between 5 and 7 minutes](https://mikhail.io/serverless/coldstarts/aws/intervals/).
 
-Warm starts are generally seen as desirable, after all, they reduce the overall run time of an execution. They potentially reduce costs as well, since code initialisation doesn't have to happen a second time¹. They do however have an interesting effect on the way we think about our DI (dependency injection) service lifetimes. In [another post](https://blog.jessebellingham.com/dependency-injection-and-service-lifetimes-in-net) I wrote about service lifetimes and the practical implications of the different types of lifetimes. It boils down to exactly what circumstances result in a new instance being created for a request for a given dependency.
+Warm starts are generally seen as desirable, after all, they reduce the overall run time of an execution. They potentially reduce costs as well, since code initialisation doesn't have to happen a second time¹. They do however have an interesting effect on the way we think about our DI service lifetimes. In [another post](https://blog.jessebellingham.com/dependency-injection-and-service-lifetimes-in-net) I wrote about service lifetimes and the practical implications of the different types of lifetimes. It boils down to exactly what circumstances result in a new instance being created for a request for a given dependency.
 
 Turns out that warm starts also have an interesting impact on dependency lifetimes in .NET.
 
@@ -52,4 +52,4 @@ Now we know for sure that every execution will get a new container scope, and by
 
 ---
 
-1. You are not charged for the time spent spinning up the container, but time spent on code initialisation once the container has started is charged
+1. You are not charged for the time spent spinning up the container, but time spent on code initialisation once the container has started is charged ([Operating Lambda: Performance optimization – Part 1](https://aws.amazon.com/blogs/compute/operating-lambda-performance-optimization-part-1/))
