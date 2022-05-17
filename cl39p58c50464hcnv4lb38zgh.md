@@ -22,7 +22,7 @@ While reading this chapter I couldn't help but draw a comparison with Clean Code
 
 > ...as with functions, smaller is the primary rule when it comes to designing classes.
 
-This focus on size is where the Clean Code philosophy really falls apart for me. Size is an indication that we should take a closer look, nothing more, nothing less. Cohesion and levels of abstraction should be the rule here. If I have a class that is over 100 lines long, but it has strong cohesion, and a consistent level of abstraction, should I feel compelled to break it up _just_ because it has breached an arbitrary upper limit on length? Clean Code seems to suggest that I should.
+This focus on size is where the Clean Code philosophy really falls apart for me. Size is an indication that we should take a closer look, nothing more, nothing less. Cohesion and levels of abstraction should be the rule here. If I have a class that is over 100 lines long, but it has strong cohesion and a consistent level of abstraction, should I feel compelled to break it up _just_ because it has breached an arbitrary upper limit on length? Clean Code seems to suggest that I should.
 
 
 A small class, by design, is not going to provide rich behaviour in and of itself. It will probably delegate to some other classes providing their own small slice of the high-level function. There is a strict adherence to this rule of size, as well as a strong desire for _everything_ to be made into a class no matter how clunky the result becomes.
