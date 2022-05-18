@@ -3,13 +3,18 @@
 There is a common sentiment among software developers that modules should be small. In OO (object oriented) programming, we can apply this to classes, but a module can refer also to sub-systems and entire services. Indeed, the trend of building things as a collection of microservices is a logical parallel to draw. When we talk about microservices, we often talk about the things you trade off when implementing them. You trade simplicity in the individual parts for greater complexity in the whole, among other things. This is not a line of thinking I often see when we are talking about the building blocks of our systems, the classes and functions.
 
 
-Chapter 4 of [A Philosophy of Software Design by John Ousterhout](https://www.goodreads.com/book/show/39996759-a-philosophy-of-software-design) focuses on how modules should present a simple interface to complex behavior, considering it in terms of cost versus benefit. Any abstraction added to a system has a cost associated with it, and the cost relates to the complexity of the interface it presents. Abstractions can become a net-negative if the interface they present is of equal or greater complexity than the behaviour they provide.
+Chapter 4 of [A Philosophy of Software Design by John Ousterhout](https://www.goodreads.com/book/show/39996759-a-philosophy-of-software-design) focuses on how modules should present a simple interface to complex behavior, considering it in terms of cost versus benefit. Each new module added to a system has a cost associated with it, and the cost relates to the complexity of the interface it presents. Modules can become a net-negative if the cost of the interface isn't outweighed by the complexity of the behaviour it provides.
+
 
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1641607891801/J4yvQSVc6Q.png)
 
 
-Well-constructed systems tend to favour fewer, simpler abstractions providing a gateway to rich functionality.
+> The best modules are deep: they have a lot of functionality hidden behind a simple interface. A deep module is a good abstraction because only a small fraction of its internal complexity is visible to users.
+
+Conversely, modules with complex interfaces, relative to the functionality they provide work against us in our battle against creeping complexity. Any benefit they may provide is negated by the cost of learning and using their interfaces.
+
+Well-constructed systems tend to favour fewer, simpler modules providing a gateway to rich functionality.
 
 
 ---
@@ -38,17 +43,15 @@ There is a bias here, he wouldn't have written the book if he didn't feel strong
 It's also a simplistic view of the complexity in our systems. It's unclear exactly what he is analogising to the toolboxes and drawers in the quote above, presumably he's talking about classes in isolation. Having more and more toolboxes with again more drawers for increasingly specific purposes doesn't automatically make a more organised workshop, no matter how well labeled they are. To continue to torture the metaphor, it's sort of like having a drawer for every different type of screw, and each individual screw also in its own drawer. At some point, continuing to break things down not only doesn't make things clearer, but it actually slows you down while you're sitting there opening drawers.... wait, what was I talking about?
 
 
-An alternative heuristic for class design and introducing abstractions could be:
+An alternative heuristic for class design and introducing more granular abstractions could be:
 
 > 
 💡 Does this abstraction add more value/reduce complexity of the system such that its introduction outweighs any added complexity for its own existence?
 
 
-Not quite as succinct as "classes should be small", but it has more utility this way. It's open for interpretation, because code is such a creative and subjective medium. Notice there is no mention of length or lines of code or anything like that. Within reason, function or class length is immaterial to complexity of a system. Here I make a another statement that is core to this idea: complexity in the system is more detrimental than complexity in individual components. All other things being equal, I would much prefer fewer more complex components than many more increasingly abstracted components. 
+Not quite as succinct as "classes should be small", but it has more utility this way. It's open for interpretation, because code is such a creative and subjective medium. Notice there is no mention of length or lines of code or anything like that. Within reason, function or class length is immaterial to complexity of a system. Here I make a another statement that is core to this idea: complexity in the system is more detrimental than complexity in individual components. All other things being equal, I would much prefer fewer more complex components than many more increasingly abstracted components.
 
-
-So we weigh the introduction of a new abstraction against its complexity cost to the rest of the system. We prefer OO code to procedural where it makes sense, but we don't _force_ our code into classes where it doesn't.
-
+Responsibilities is another good indicator of where to create a new abstraction. If a class clearly is responsible for doing too many things, e.g. [god objects](https://en.wikipedia.org/wiki/God_object), there is a good case for introducing a new abstraction to encapsulate some of those responsibilities. I would still weigh this alongside that cost/value tradeoff however. We prefer OO code with good abstractions and deep modules to procedural where it makes sense, but we don't _force_ our code into classes where it doesn't.
 
 
 ---
