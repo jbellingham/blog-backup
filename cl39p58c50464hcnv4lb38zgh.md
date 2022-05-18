@@ -12,7 +12,7 @@ Chapter 4 of [A Philosophy of Software Design by John Ousterhout](https://www.go
 
 > The best modules are deep: they have a lot of functionality hidden behind a simple interface. A deep module is a good abstraction because only a small fraction of its internal complexity is visible to users.
 
-Conversely, modules with complex interfaces, relative to the functionality they provide work against us in our battle against creeping complexity. Any benefit they may provide is negated by the cost of learning and using their interfaces.
+Conversely, modules with complex interfaces relative to the functionality they provide work against us in our battle against creeping complexity. Any benefit they may provide is negated by the cost of learning and using their interfaces.
 
 Well-constructed systems tend to favour fewer, simpler modules providing a gateway to rich functionality.
 
